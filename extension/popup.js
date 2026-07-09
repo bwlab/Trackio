@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chrome.storage.sync.get(
     ["trackioApiBase", "trackioEnabled"],
     (result) => {
-      const apiBase = result.trackioApiBase || "http://localhost:3000";
+      const apiBase = result.trackioApiBase || "https://trackio.bwlab.it";
       const enabled = result.trackioEnabled !== false;
 
       enableToggle.checked = enabled;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.storage.sync.set({ trackioEnabled: enabled });
 
     chrome.storage.sync.get(["trackioApiBase"], (result) => {
-      updateStatus(enabled, result.trackioApiBase || "http://localhost:3000");
+      updateStatus(enabled, result.trackioApiBase || "https://trackio.bwlab.it");
     });
   });
 

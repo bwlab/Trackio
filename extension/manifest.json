@@ -12,8 +12,8 @@
   ],
   "host_permissions": [
     "https://mail.google.com/*",
-    "http://localhost:3000/*",
-    "https://*.ayushk.blog/*"
+    "https://trackio.bwlab.it/*",
+    "http://localhost:3000/*"
   ],
   "content_scripts": [
     {

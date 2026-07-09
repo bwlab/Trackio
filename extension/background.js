@@ -4,7 +4,7 @@
 // and blocks compose-time self-opens via declarativeNetRequest.
 
 // Default API base URL
-const DEFAULT_API_BASE = "https://trackio.ayushk.blog";
+const DEFAULT_API_BASE = "https://trackio.bwlab.it";
 
 // Notification polling interval (in minutes for chrome.alarms)
 const POLL_ALARM_NAME = "trackio-poll-opens";
