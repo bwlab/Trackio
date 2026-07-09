@@ -9,6 +9,7 @@ import {
   Eye,
   BarChart3,
   LogOut,
+  Settings,
   RefreshCw,
   Send,
   Clock,
@@ -199,6 +200,15 @@ export function DashboardContent({ user }: { user: DashboardUser }) {
                 </Avatar>
                 <span className="font-medium">{user.name}</span>
               </div>
+              <Link href="/dashboard/profile">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-500 hover:text-orange-600 hover:bg-orange-50"
+                >
+                  <Settings className="w-4 h-4" />
+                </Button>
+              </Link>
               <Button
                 variant="ghost"
                 size="sm"
