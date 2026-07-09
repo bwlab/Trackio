@@ -17,7 +17,7 @@
   const SELF_VIEW_DEBOUNCE_MS = 60_000;
 
   // ─── State ─────────────────────────────────────────────────
-  let settings = { apiBase: "https://trackio.ayushk.blog", enabled: true };
+  let settings = { apiBase: "https://trackio.bwlab.it", enabled: true };
   let senderEmail = null;
   let isInSentFolder = false;
   const selfViewTimestamps = {};
@@ -39,7 +39,7 @@
     }
 
     if (!settings || typeof settings !== "object") {
-      settings = { apiBase: "https://trackio.ayushk.blog", enabled: true };
+      settings = { apiBase: "https://trackio.bwlab.it", enabled: true };
       log("Settings invalid, reset to defaults");
     }
 
