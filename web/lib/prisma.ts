@@ -1,5 +1,5 @@
 import { PrismaClient } from "@/app/generated/prisma/client";
-import { PrismaNeon } from "@prisma/adapter-neon";
+import { PrismaPg } from "@prisma/adapter-pg";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -11,10 +11,9 @@ function createPrismaClient() {
     throw new Error("DATABASE_URL is not set");
   }
 
-  console.log("[Trackio] Creating Prisma client with Neon adapter...");
-
-  // PrismaNeon internally creates a neon.Pool with this config
-  const adapter = new PrismaNeon({ connectionString: connString });
+  // ponytail: self-hosted Postgres via plain pg adapter (upstream defaults to
+  // Neon's proprietary WebSocket protocol, unusable against a normal Postgres container)
+  const adapter = new PrismaPg({ connectionString: connString });
   return new PrismaClient({ adapter });
 }
 
