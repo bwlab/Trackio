@@ -111,7 +111,12 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 async function pollForNewOpens(settings) {
   try {
     const trackingData = await getTrackingData();
-    const emailIds = Object.keys(trackingData);
+    // ponytail: server caps at 100 IDs (first 100 kept) → send the 100 most recent,
+    // otherwise once >100 emails are stored new ones are never polled
+    const emailIds = Object.entries(trackingData)
+      .sort((a, b) => (b[1].timestamp || 0) - (a[1].timestamp || 0))
+      .slice(0, 100)
+      .map(([id]) => id);
 
     if (emailIds.length === 0) return;
 
